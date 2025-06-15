@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Calendar,
   ChevronUp,
@@ -62,7 +64,7 @@ const items = [
 export default function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className='py-3'>
+      <SidebarHeader className="py-3">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton className="flex" asChild>
@@ -94,8 +96,10 @@ export default function AppSidebar() {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
-                  {item.title==='Inbox' && (
-                    <SidebarMenuBadge>3</SidebarMenuBadge>
+                  {item.title === 'Inbox' && (
+                    <SidebarMenuBadge>
+                      <Link href="payments">3</Link>
+                    </SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>
               ))}
@@ -117,10 +121,10 @@ export default function AppSidebar() {
                 className="border border-gray-600 rounded-2xl px-3 py-3 "
               >
                 <DropdownMenuItem className=" outline-none cursor-pointer hover:bg-amber-50/20 px-2 py-1 rounded-sm">
-                  Account
+                  <Link href={`/users/Ravil`}>Account</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className=" outline-none cursor-pointer hover:bg-amber-50/20 px-2 py-1 rounded-sm">
-                  Settings
+                  <Link href="/payments">Payments</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className=" outline-none cursor-pointer hover:bg-amber-50/20 px-2 py-1 rounded-sm">
                   Logout
