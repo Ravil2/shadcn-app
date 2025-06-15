@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardFooter, CardTitle } from './ui/card'
 import Image from 'next/image'
+import { Badge } from './ui/badge'
 
 interface IContent {
   id: number
@@ -72,7 +73,7 @@ const latestTransactions: IContent[] = [
   },
   {
     id: 3,
-    title: 'Refund Processed',
+    title: 'Payment for Services',
     badge: 'Alex Johnson',
     image: 'https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg',
     count: 1100,
@@ -108,7 +109,10 @@ const CardList = ({ title }: { title: string }) => {
       <h1 className="text-lg font-medium mb-6">{title}</h1>
       <div className="flex flex-col gap-2">
         {list.map((item) => (
-          <Card key={item.id} className='flex-row items-center justify-between gap-4 p-4'>
+          <Card
+            key={item.id}
+            className="flex-row items-center justify-between gap-4 p-4"
+          >
             <div className="w-12 h-12 rounded-sm relative overflow-hidden">
               <Image
                 src={item.image}
@@ -117,10 +121,15 @@ const CardList = ({ title }: { title: string }) => {
                 className="object-cover"
               />
             </div>
-            <CardContent className='p-0'>
-              <CardTitle className='text-sm font-medium'>{item.title}</CardTitle>
+            <CardContent className="flex-1 p-0">
+              <CardTitle className="text-sm font-medium ">
+                {item.title}
+              </CardTitle>
+              <Badge className="mt-1" variant={'secondary'}>
+                {item.badge}
+              </Badge>
             </CardContent>
-            <CardFooter>{item.count / 1000}K</CardFooter>
+            <CardFooter className="p-0">{item.count / 1000}K</CardFooter>
           </Card>
         ))}
       </div>
