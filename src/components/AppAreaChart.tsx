@@ -20,11 +20,11 @@ interface IChart {
 const chartConfig = {
   desktop: {
     label: 'Desktop',
-    color: '#7c3aed',
+    color: '#22d3ee',
   },
   mobile: {
     label: 'Mobile',
-    color: '#c4b5fd',
+    color: '#fafafa',
   },
 } satisfies ChartConfig
 
